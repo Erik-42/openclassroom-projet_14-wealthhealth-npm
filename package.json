@@ -1,6 +1,6 @@
 {
-	"name": "modalereacterik42",
-	"version": "1.0.0",
+	"name": "modaleerik42",
+	"version": "1.0.2",
 	"description": "Modale toute prête et autonome sous React - https://github.com/Erik-42/openclassroom-projet_14-wealthhealth/tree/main/composant-npm ",
 	"license": "MIT",
 	"author": "erik-42",
@@ -16,12 +16,12 @@
 		"dist",
 		"README.md"
 	],
-	"main": "./dist/modalereacterik42.umd.js",
-	"module": "./dist/modalereacterik42.es.js",
+	"main": "./dist/modaleerik42.umd.js",
+	"module": "./dist/modaleerik42.es.js",
 	"exports": {
 		".": {
-			"import": "./dist/modalereacterik42.es.js",
-			"require": "./dist/modalereacterik42.umd.js"
+			"import": "./dist/modaleerik42.es.js",
+			"require": "./dist/modaleerik42.umd.js"
 		}
 	},
 	"scripts": {
@@ -58,9 +58,12 @@
 		}
 	},
 	"devDependencies": {
+		"@babel/preset-env": "^7.25.4",
+		"@babel/preset-react": "^7.24.7",
 		"@testing-library/dom": "^10.4.0",
 		"@testing-library/react": "^16.0.1",
 		"@vitejs/plugin-react": "^4.3.1",
+		"babel-jest": "^29.7.0",
 		"c8": "^10.1.2",
 		"eslint": "^9.10.0",
 		"eslint-plugin-react": "^7.35.2",

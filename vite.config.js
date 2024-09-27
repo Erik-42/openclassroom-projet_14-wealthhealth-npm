@@ -7,8 +7,8 @@ export default defineConfig({
 		lib: {
 			// eslint-disable-next-line no-undef
 			entry: path.resolve(__dirname, "src/lib/index.jsx"),
-			name: "modalereacterik42",
-			fileName: (format) => `modalereacterik42.${format}.jsx`,
+			name: "modaleerik42",
+			fileName: (format) => `modaleerik42.${format}.jsx`,
 		},
 		rollupOptions: {
 			external: ["react", "react-dom"],
