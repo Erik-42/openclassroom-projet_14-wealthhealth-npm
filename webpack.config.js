@@ -1,4 +1,8 @@
 module.exports = {
+	env: {
+		es6: true,
+		node: true,
+	},
 	module: {
 		rules: [
 			{
@@ -9,6 +13,19 @@ module.exports = {
 				use: {
 					loader: "babel-loader",
 				},
+			},
+			{
+				test: /\.scss$/,
+				use: [
+					"style-loader",
+					"css-loader",
+					{
+						loader: "sass-loader",
+						options: {
+							implementation: require("sass"),
+						},
+					},
+				],
 			},
 		],
 	},
