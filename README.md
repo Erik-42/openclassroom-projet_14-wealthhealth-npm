@@ -74,3 +74,14 @@ const parameter = {
 	width: "",
 };
 ```
+
+```json
+"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm/issues"
+	},
+	"homepage": "https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm#readme"
+```

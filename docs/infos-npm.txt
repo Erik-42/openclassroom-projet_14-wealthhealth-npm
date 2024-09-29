@@ -1,34 +1,251 @@
-# React + Vite
+Étape 1 :
+Créez un dossier avec le nom « tutorial-paquet-npm » et placez-vous dans le dossier. 
+Prenez votre terminal et lancez les commandes suivantes :
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Créez le dossier : ``mkdir tutorial-paquet-npm``
 
-Currently, two official plugins are available:
+- Entrez dans le dossier : ``cd tutorial-paquet-npm``
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Étape 2:
+Créez un fichier `package.json`
+
+`npm init -y`
+
+Le fichier `package.json` aura comme contenu le nom du projet, la version, son auteur, une description, les dépendances et d’autres informations. Ajoutez ceci dans votre `package.json`
+
+``"type": "module"``
+
+Votre fichier `package.json` devrait ressembler à ça, à noter que certaines dépendance sont optionnelles
+
+````json
+{
+	"name": "MODAL_NAME",
+	"version": "1.0.0",
+	"description": "MODAL_DESCRIPTION",
+	"license": "MIT",
+	"author": "MODAL_AUTHOR",",
+	"directories": {
+		"doc": "docs"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+MODAL_URL.git"
+	},
+	"bugs": {
+		"url": "MODAL_URL/issues"
+	},
+	"homepage": "MODAL_URL#readme",
+	"type": "module",
+	"keywords": [
+		MODAL_KEYWORDS
+	],
+	"files": [
+		"MODAL_SRC",
+		"README.md"
+	],
+	"main": "./MODAL.jsx",
+	"module": "./MODAL.jsx",
+	"exports": {
+		".": {
+			"import": "./MODAL.jsx",
+			"require": "./MODAL.jsx"
+		}
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "eslint .",
+		"test": "vitest run",
+		"watch": "vitest",
+		"coverage": "vitest run --coverage"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"node": true,
+			"es2020": true
+		},
+		"extends": [
+			"eslint:recommended",
+			"plugin:react/recommended"
+		],
+		"parserOptions": {
+			"sourceType": "module"
+		}
+	},
+	"devDependencies": {
+		"babel-jest": "^29.7.0",
+		"babel-loader": "^9.2.1",
+		"@babel/core": "^7.25.2",
+		"@babel/node": "^7.25.0",
+		"@babel/preset-env": "^7.25.4",
+		"@babel/preset-react": "^7.24.7",
+		"@testing-library/dom": "^10.4.0",
+		"@testing-library/react": "^16.0.1",
+		"vite": "^5.4.3",
+		"vitest": "^2.0.5"
+		"@vitejs/plugin-react": "^4.3.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-test-renderer": "^18.3.1",
+		"sass-embedded": "^1.79.1",
+		"eslint": "^9.10.0",
+		"eslint-plugin-react": "^7.35.2",
+	},
+	"dependencies": {
+		"babel": "^6.23.0",
+		"@babel/register": "^7.24.6",
+		"jest": "^29.7.0",
+	}
+}
+
+```
+
+Étape 3 :
+Créez un fichier ``.gitignore``.
+
+Ce fichier est utile pour ignorer les fichiers, par exemple : les builds ou encore les fichiers compilés en lien avec le langage utilisé.
+
+``touch .gitignore``
+
+Ajoutez la ligne suivante dans votre fichier :
+
+``node_modules/``
+
+Cela permettra lors du versioning de ne pas envoyer le dossier “node_modules” sur git.
+
+
+Étape 4 :
+Pour définir le nom de votre paquet :
+
+``https://www.npmjs.com/package/VOTRE_NOM_DE_PAQUAGE``
+
+Si vous atterrissez sur une 404, BRAVO le nom est disponible, sinon trouvez-en un autre.
+
+Maintenant que vous avez trouvé un nom de paquet, veuillez le modifier dans le fichier ``package.json``.
+
+
+Étape 5 :
+Créons un fichier ``index.js`` à la racine du projet, là où est placé le fichier ``package.json``.
+
+``touch index.js``
+
+(Dans notre package.json notre main est index.js, le nom est modifiable)
+
+importez les paquets dont vous avez besoin.
+
+Nous exportons le ``NAME_FUNCTION`` de votre fonction ou const pour qu’elle puisse être appelée par nos futurs utilisateurs.
+
+
+Partie 2 : Tester son paquet
+Dans votre terminal à la racine de votre projet faites un :
+
+``npm link``
+
+Pour comprendre ce que fait “npm link” je vous invite à lire la documentation officielle ``https://docs.npmjs.com/cli/v7/commands/npm-link``.
+
+Une fois le link effectué, vous pouvez utiliser votre package sur n’importe quel projet installé sur votre machine .
+
+
+
+Nous allons maintenant initialiser un projet afin de tester notre paquet pour être sûr d’envoyer quelque chose de fonctionnel
+
+Sortez de la racine du projet et créez un nouveau dossier que nous appellerons ``test_paquet`` et placez-vous dedans.
+
+``mkdir test_paquet``
+
+``cd test_paquet``
+
+Initialisons un fichier ``package.json``.
+
+``npm init -y``
+
+Ajoutez ceci dans votre ``package.json`` comme précédemment.
+
+``"type": "module",``
+
+Créons un fichier ``index.js`` car n’oublions pas que c’est le ``main`` dans notre fichier ``package.json`` qui est généré.
+
+``touch index.js``
+
+Maintenant nous allons importer notre paquet :
+
+``npm link « LE NOM DE VOTRE PAQUET QUE VOUS AVEZ DÉFINI À L’ETAPE 4 »`` Exemple : ``npm link tutorial-paquet-npm``
+
+« ``tutorial-paquet-npm`` » fait référence au nom que j’ai défini dans le fichier ``package.json`` du paquet développé/
+
+Dans notre fichier `` index.js``, ajoutez ceci :
+
+> Import NAME_FUNCTION from ``'LE NOM DE VOTRE PAQUET QUE VOUS AVEZ DÉFINI À L’ETAPE 4'``
+>
+> NAME_FUNCTION().then(response => console.log(response))
+
+Nous importons le paquet que nous avons développé.
+
+Ensuite exécutez la commande suivante :
+
+``node index.js``
+
+Cela va nous permettre de voir ce que nous renvoie notre paquet.
+
+Si vous obtenez les données que vous attendiez, tous va bien.
+
+Si c’est le cas vous pouvez publier votre paquet avec la certitude qu’il est fonctionnel. 
+
 
 Vous pouvez exécuter vos tests depuis la ligne de commande en tapant :
 
-$ npm test
+ ``npm test``
 Ou vous pouvez exécuter des tests et configurer une montre pour réexécuter les tests lorsque quelque chose change.
 
 $ npm run watch
-Remarque : l'exécution de tests d'instantanés crée un /src/lib/**snapshots**dossier. N'ignorez pas ce dossier avec Git. Les tests d'instantanés sont destinés à être validés dans votre dépôt Git.
+Remarque : l'exécution de tests d'instantanés crée un /src/lib/**snapshots**dossier. 
+N'ignorez pas ce dossier avec Git. 
+Les tests d'instantanés sont destinés à être validés dans votre dépôt Git.
 
+
+## Versioning
+La version de votre paquet se situe dans votre fichier ``package.json``
+
+``"version": "1.0.0",``
+
+Pour aider les développeurs qui s'appuient sur votre code, 
+nous vous recommandons de démarrer la version de votre package à 1.0.0 et d'incrémenter comme suit :
+
+Statut de code  	                                    Organisation    	        Règle   	                                                            Exemple de version
+Sortie de produit	                                    Nouveau produit	            La première version du produit commence par 1.0.0	                    1.0.0
+Correction de bug	                                    Correctif	                Incrémenter le troisième chiffre	                                    1.0.1
+Implémentation d’une nouvelle fonctionnalité	        Version mineure	            Incrémenter le chiffre du milieu et remettre le dernier chiffre à zéro	1.1.0
+Modifications qui rompent la compatibilité descendante	Version majeure	Incrémenter le premier chiffre et réinitialisez les autres à zéro	                2.0.0
+
+source: https://docs.npmjs.com/about-semantic-versioning
 
 Créez les fichiers de build :
 
-$ npm run build
-Les formats de module UMD et ESM sont créés et placés dans le /distdossier. 
+ ``npm run build``
+Les formats de module UMD et ESM sont créés et placés dans le dossier ``/dist``. 
 
 
 Assurez-vous d'être connecté à npm. Sinon, saisissez :
 
 
-$ npm login
+ ``npm login``
 
 
 Publiez votre composant
 
-$ npm publish
+ ``npm publish``
 Et c'est tout !
