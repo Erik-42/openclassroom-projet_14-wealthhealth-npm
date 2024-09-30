@@ -1,6 +1,6 @@
 {
 	"name": "modaleerik42",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Modale toute prête et autonome sous React - https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm",
 	"license": "MIT",
 	"author": "erik-42 <erik.mesen@basillecorp.dev>",
@@ -95,6 +95,7 @@
 		"@babel/register": "^7.24.6",
 		"babel": "^6.23.0",
 		"jest": "^29.7.0",
+		"prop-types": "^15.8.1",
 		"styled-components": "^6.1.13"
 	}
 }
