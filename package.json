@@ -1,6 +1,6 @@
 {
 	"name": "modaleerik42",
-	"version": "1.0.8",
+	"version": "1.0.11",
 	"description": "Modale toute prête et autonome sous React - https://github.com/Erik-42/openclassroom-projet_14-wealthhealth-npm",
 	"license": "MIT",
 	"author": "erik-42 <erik.mesen@basillecorp.dev>",
@@ -24,7 +24,7 @@
 		"dom"
 	],
 	"files": [
-		"src",
+		"./src/lib/components",
 		"README.md"
 	],
 	"main": "./src/lib/components/modaleErik42/modaleerik42.jsx",
